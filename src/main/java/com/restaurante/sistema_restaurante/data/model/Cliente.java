@@ -15,6 +15,6 @@ public class Cliente {
     private String name;
     private String email;
     
-    private Long login;
-    private Long password;
+    private String login;
+    private String password;
 }
