@@ -4,6 +4,7 @@ import com.restaurante.sistema_restaurante.data.dto.ClienteDTO;
 import com.restaurante.sistema_restaurante.data.dto.ClienteLowDTO;
 import com.restaurante.sistema_restaurante.data.model.Cliente;
 import com.restaurante.sistema_restaurante.dozer.DozerConverter;
+import com.restaurante.sistema_restaurante.exception.CommonsException;
 import com.restaurante.sistema_restaurante.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,13 +48,15 @@ public class ClienteService {
         clienterepository.deleteById(id);
     }
 
-//    public ClienteDTO findById(Long id){
-//        var entity = clienterepository.findById(id);
-//        if (entity.isEmpty()){
-//            throw new CommonsException(HttpStatus.NOT_FOUND,
-//                    "")
-//        }
-//    }
+    public ClienteDTO findById(Long id){
+        var entity = clienterepository.findById(id);
+        if (entity.isEmpty()){
+            throw new CommonsException(HttpStatus.NOT_FOUND,
+                    "restaurante.service.cliente.notfound",
+                    "O usuario com o ID informado, não foi encontrado");
+        }
+        return DozerConverter.parseObject(entity.get(), ClienteDTO.class);
+    }
 
 
 }
