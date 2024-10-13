@@ -14,6 +14,7 @@ public class Cliente {
 
     private String name;
     private String email;
-    private Long telefone;
-    private Long dateofbirth;
+    
+    private Long login;
+    private Long password;
 }
