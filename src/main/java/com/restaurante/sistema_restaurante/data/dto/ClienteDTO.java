@@ -11,6 +11,6 @@ public class ClienteDTO {
     private Long id;
     private String name;
     private String email;
-    private Long login;
-    private Long password;
+    private String login;
+    private String password;
 }
