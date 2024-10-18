@@ -4,9 +4,7 @@ import lombok.Data;
 
 @Data
 public class MesaLowDTO {
-
-
-    private Long numero;
+    private Long numeroMesa;
     private Long capacidade;
     private String localizacao;
     private String disponibilidade;

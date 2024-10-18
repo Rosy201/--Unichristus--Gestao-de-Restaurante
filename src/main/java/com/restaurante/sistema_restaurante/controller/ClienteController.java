@@ -15,8 +15,13 @@ import java.util.List;
 @RequestMapping("/api/v1/cliente")
 public class ClienteController {
 
+
+    private final ClienteService clienteservice;
+
     @Autowired
-    private ClienteService clienteservice;
+    public ClienteController(ClienteService clienteservice) {
+        this.clienteservice = clienteservice;
+    }
 
     @Operation(summary = "Cadastra os dados de um cliente | role: [ADMIN]",
                         tags = "Cliente")

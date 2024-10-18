@@ -1,7 +1,7 @@
 package com.restaurante.sistema_restaurante.data.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "tb_mesa")
@@ -10,7 +10,7 @@ public class Mesa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numero;
+    private Long numeroMesa;
 
     private Long capacidade;
     private String localizacao;

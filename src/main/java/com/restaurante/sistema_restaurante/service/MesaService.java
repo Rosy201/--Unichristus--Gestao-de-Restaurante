@@ -14,8 +14,6 @@ import java.util.List;
 
 @Service
 public class MesaService {
-
-
     private final MesaRepository mesaRepository;
 
     @Autowired
@@ -39,12 +37,12 @@ public class MesaService {
         return DozerConverter.parseListObjects(mesaRepository.findAll(), MesaLowDTO.class);
     }
 
-    public void delete(Long numero) {
-        mesaRepository.deleteById(numero);
+    public void delete(Long numeroMesa) {
+        mesaRepository.deleteById(numeroMesa);
     }
 
-    public MesaDTO findById(Long numero){
-        var entity = mesaRepository.findById(numero);
+    public MesaDTO findById(Long numeroMesa){
+        var entity = mesaRepository.findById(numeroMesa);
         if (entity.isEmpty()){
             throw new CommonsException(HttpStatus.NOT_FOUND,
                     "restaurante.service.mesa.notfound",
