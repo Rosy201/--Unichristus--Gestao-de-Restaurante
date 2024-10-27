@@ -8,5 +8,5 @@ public class MesaDTO {
     private Long capacidade;
     private String localizacao;
     private String disponibilidade;
-    private String reservadaPara;
+    private ReservaDTO reservadaPara;
 }

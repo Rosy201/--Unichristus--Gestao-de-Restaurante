@@ -15,6 +15,4 @@ public class Mesa {
     private Long capacidade;
     private String localizacao;
     private String disponibilidade;
-    private String reservadaPara;
-
 }
