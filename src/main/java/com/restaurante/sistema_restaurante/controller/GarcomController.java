@@ -5,10 +5,7 @@ import com.restaurante.sistema_restaurante.data.dto.GarcomLowDTO;
 import com.restaurante.sistema_restaurante.service.GarcomService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,22 +20,27 @@ public class GarcomController {
         this.garcomService = garcomService;
     }
 
+    @PostMapping
     public GarcomDTO create(@RequestBody GarcomDTO garcom){
         return garcomService.save(garcom);
     }
 
+    @PutMapping
     public GarcomDTO update(@RequestBody GarcomDTO garcom){
         return garcomService.save(garcom);
     }
 
+    @GetMapping("/all")
     public List<GarcomLowDTO> findAll(){
         return garcomService.findAll();
     }
 
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
         garcomService.delete(id);
     }
 
+    @GetMapping("/{id}")
     public GarcomDTO findById(@PathVariable Long id){
         return garcomService.findById(id);
     }

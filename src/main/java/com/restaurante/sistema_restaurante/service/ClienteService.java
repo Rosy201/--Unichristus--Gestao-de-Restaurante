@@ -19,7 +19,6 @@ public class ClienteService {
 
     @Autowired
     public ClienteService(ClienteRepository clienterepository){
-
         this.clienterepository = clienterepository;
     }
 
