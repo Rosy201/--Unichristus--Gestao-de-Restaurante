@@ -6,9 +6,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "tb_garçom")
+@Table(name = "tb_garcom")
 @Data
-public class Garçom {
+public class Garcom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
