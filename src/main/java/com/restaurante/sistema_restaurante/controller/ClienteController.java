@@ -87,6 +87,4 @@ public class ClienteController {
     public ClienteDTO findById(@PathVariable Long id) {
         return clienteservice.findById(id);
     }
-
-
 }
