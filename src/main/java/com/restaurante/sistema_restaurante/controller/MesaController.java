@@ -6,6 +6,7 @@ import com.restaurante.sistema_restaurante.service.MesaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/mesa")
+@Tag(name = "Mesas", description = "Operacoes relacionada a mesa")
+
 public class MesaController {
 
     private final MesaService mesaService;
@@ -22,8 +25,7 @@ public class MesaController {
         this.mesaService = mesaService;
     }
 
-    @Operation(summary = "Cadastra os dados de uma mesa | role: [ADMIN]",
-            tags = "Mesa")
+    @Operation(summary = "Cadastra os dados de uma mesa | role: [ADMIN]")
 
     @ApiResponses({
 
@@ -36,8 +38,7 @@ public class MesaController {
         return mesaService.save(mesa);
     }
 
-    @Operation(summary = "Atualiza os dados da mesa",
-            tags = "MesaAtualiza")
+    @Operation(summary = "Atualiza os dados da mesa")
 
     @ApiResponses({
 
@@ -48,8 +49,7 @@ public class MesaController {
     @PutMapping("/{numeroMesa}")
     public MesaDTO update(@RequestBody MesaDTO mesa) { return mesaService.save(mesa); }
 
-    @Operation(summary = "Encontra os dados da mesa",
-            tags = "MesaProcurar")
+    @Operation(summary = "Encontra os dados da mesa")
 
     @ApiResponses({
 
@@ -62,8 +62,7 @@ public class MesaController {
         return mesaService.findAll();
     }
 
-    @Operation(summary = "Deleta os dados da mesa",
-            tags = "MesaDeletada")
+    @Operation(summary = "Deleta os dados da mesa")
 
     @ApiResponses({
 
@@ -76,8 +75,7 @@ public class MesaController {
         mesaService.delete(numeroMesa);
     }
 
-    @Operation(summary = "Encontra os dados da mesa",
-            tags = "MesaAllDados")
+    @Operation(summary = "Encontra os dados da mesa")
 
     @ApiResponses({
 

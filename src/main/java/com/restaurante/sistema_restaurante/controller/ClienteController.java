@@ -6,6 +6,7 @@ import com.restaurante.sistema_restaurante.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +14,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/cliente")
+@Tag(name = "Clientes", description = "Operações relacionadas a clientes")
 public class ClienteController {
-
-
     private final ClienteService clienteservice;
 
     @Autowired
@@ -23,8 +23,7 @@ public class ClienteController {
         this.clienteservice = clienteservice;
     }
 
-    @Operation(summary = "Cadastra os dados de um cliente | role: [ADMIN]",
-                        tags = "Cliente")
+    @Operation(summary = "Cadastra os dados de um cliente | role: [ADMIN]")
 
     @ApiResponses({
 
@@ -37,8 +36,7 @@ public class ClienteController {
         return clienteservice.save(cliente);
     }
 
-    @Operation(summary = "Atualiza os dados do cliente",
-            tags = "ClienteAtualiza")
+    @Operation(summary = "Atualiza os dados do cliente")
 
     @ApiResponses({
 
@@ -51,8 +49,7 @@ public class ClienteController {
         return clienteservice.save(cliente);
     }
 
-    @Operation(summary = "Encontra os dados do cliente",
-            tags = "ClienteProcurar")
+    @Operation(summary = "Encontra os dados do cliente")
 
     @ApiResponses({
 
@@ -65,8 +62,7 @@ public class ClienteController {
         return clienteservice.findAll();
     }
 
-    @Operation(summary = "Deleta os dados do cliente",
-            tags = "ClienteDeletado")
+    @Operation(summary = "Deleta os dados do cliente")
 
     @ApiResponses({
 
@@ -79,8 +75,7 @@ public class ClienteController {
         clienteservice.delete(id);
     }
 
-    @Operation(summary = "Encontra os dados do cliente",
-            tags = "ClienteAllDados")
+    @Operation(summary = "Encontra os dados do cliente")
 
     @ApiResponses({
 
