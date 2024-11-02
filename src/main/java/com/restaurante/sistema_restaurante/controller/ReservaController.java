@@ -2,6 +2,7 @@ package com.restaurante.sistema_restaurante.controller;
 
 import com.restaurante.sistema_restaurante.data.dto.ReservaDTO;
 import com.restaurante.sistema_restaurante.data.dto.ReservaLowDTO;
+import com.restaurante.sistema_restaurante.service.CupomService;
 import com.restaurante.sistema_restaurante.service.ReservaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,10 +19,13 @@ import java.util.List;
 @Tag(name = "Reservas", description = "Operacoes relacionada a reserva")
 public class ReservaController {
     private final ReservaService reservaService;
+    private final CupomService cupomService;
 
     @Autowired
-    public ReservaController(ReservaService reservaService) {
+    public ReservaController(ReservaService reservaService,
+                             CupomService cupomService) {
         this.reservaService = reservaService;
+        this.cupomService = cupomService;
     }
 
     @Operation(summary = "Cadastra os dados de uma reserva | role: [ADMIN]")

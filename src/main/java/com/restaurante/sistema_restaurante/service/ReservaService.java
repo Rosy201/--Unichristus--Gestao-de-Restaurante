@@ -6,6 +6,7 @@ import com.restaurante.sistema_restaurante.data.model.Cliente;
 import com.restaurante.sistema_restaurante.data.model.Mesa;
 import com.restaurante.sistema_restaurante.data.model.Reserva;
 import com.restaurante.sistema_restaurante.dozer.DozerConverter;
+import com.restaurante.sistema_restaurante.email.EmailService;
 import com.restaurante.sistema_restaurante.exception.CommonsException;
 import com.restaurante.sistema_restaurante.repository.ClienteRepository;
 import com.restaurante.sistema_restaurante.repository.MesaRepository;
@@ -22,12 +23,17 @@ public class ReservaService {
     private final ReservaRepository reservaRepository;
     private final ClienteRepository clienteRepository;
     private final MesaRepository mesaRepository;
+    private final EmailService emailService;
 
     @Autowired
-    public ReservaService(ReservaRepository reservarepository, ClienteRepository clienteRepository, MesaRepository mesaRepository) {
+    public ReservaService(ReservaRepository reservarepository,
+                          ClienteRepository clienteRepository,
+                          MesaRepository mesaRepository,
+                          EmailService emailService) {
         this.reservaRepository = reservarepository;
         this.clienteRepository = clienteRepository;
         this.mesaRepository = mesaRepository;
+        this.emailService = emailService;
     }
     public ReservaDTO save(ReservaDTO reserva){
         Cliente cliente = clienteRepository.findById(reserva.getCliente().getId())
@@ -47,6 +53,8 @@ public class ReservaService {
         
         var entityDTO = reservaRepository.save(entity);
 
+        //emailService.sendCupomEmail(cliente.getEmail(), "DESCONTO10", 10.0);
+        
         return DozerConverter.parseObject(entityDTO, ReservaDTO.class);
     }
 
