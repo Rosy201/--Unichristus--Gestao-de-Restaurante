@@ -11,7 +11,7 @@ import java.io.Serial;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@AllArgsConstructor
+@AllArgsConstructor //Will create all constructors
 public class CommonsException extends RuntimeException{
 
     @Serial
@@ -20,7 +20,6 @@ public class CommonsException extends RuntimeException{
     protected HttpStatus status;
     protected String key;
     protected String text;
-
 
     public ResponseEntity<MessageDTO> getMessageError() {
         return ResponseEntity.status(status).body(new MessageDTO(text, key));

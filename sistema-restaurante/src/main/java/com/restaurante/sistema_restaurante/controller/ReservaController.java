@@ -2,7 +2,11 @@ package com.restaurante.sistema_restaurante.controller;
 
 import com.restaurante.sistema_restaurante.data.dto.ReservaDTO;
 import com.restaurante.sistema_restaurante.data.dto.ReservaLowDTO;
+<<<<<<< HEAD:src/main/java/com/restaurante/sistema_restaurante/controller/ReservaController.java
 import com.restaurante.sistema_restaurante.service.CupomService;
+=======
+//import com.restaurante.sistema_restaurante.service.CupomService;
+>>>>>>> 7d34b07 (Adiciona frontend e reorganiza estrutura do projeto):sistema-restaurante/src/main/java/com/restaurante/sistema_restaurante/controller/ReservaController.java
 import com.restaurante.sistema_restaurante.service.ReservaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -19,7 +23,11 @@ import java.util.List;
 @Tag(name = "Reservas", description = "Operacoes relacionada a reserva")
 public class ReservaController {
     private final ReservaService reservaService;
+<<<<<<< HEAD:src/main/java/com/restaurante/sistema_restaurante/controller/ReservaController.java
     private final CupomService cupomService;
+=======
+//    private final CupomService cupomService;
+>>>>>>> 7d34b07 (Adiciona frontend e reorganiza estrutura do projeto):sistema-restaurante/src/main/java/com/restaurante/sistema_restaurante/controller/ReservaController.java
 
     @Autowired
     public ReservaController(ReservaService reservaService,

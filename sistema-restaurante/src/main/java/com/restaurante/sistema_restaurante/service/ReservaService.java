@@ -6,7 +6,11 @@ import com.restaurante.sistema_restaurante.data.model.Cliente;
 import com.restaurante.sistema_restaurante.data.model.Mesa;
 import com.restaurante.sistema_restaurante.data.model.Reserva;
 import com.restaurante.sistema_restaurante.dozer.DozerConverter;
+<<<<<<< HEAD:src/main/java/com/restaurante/sistema_restaurante/service/ReservaService.java
 import com.restaurante.sistema_restaurante.email.EmailService;
+=======
+//import com.restaurante.sistema_restaurante.email.EmailService;
+>>>>>>> 7d34b07 (Adiciona frontend e reorganiza estrutura do projeto):sistema-restaurante/src/main/java/com/restaurante/sistema_restaurante/service/ReservaService.java
 import com.restaurante.sistema_restaurante.exception.CommonsException;
 import com.restaurante.sistema_restaurante.repository.ClienteRepository;
 import com.restaurante.sistema_restaurante.repository.MesaRepository;
@@ -23,11 +27,16 @@ public class ReservaService {
     private final ReservaRepository reservaRepository;
     private final ClienteRepository clienteRepository;
     private final MesaRepository mesaRepository;
+<<<<<<< HEAD:src/main/java/com/restaurante/sistema_restaurante/service/ReservaService.java
     private final EmailService emailService;
+=======
+//    private final EmailService emailService;
+>>>>>>> 7d34b07 (Adiciona frontend e reorganiza estrutura do projeto):sistema-restaurante/src/main/java/com/restaurante/sistema_restaurante/service/ReservaService.java
 
     @Autowired
     public ReservaService(ReservaRepository reservarepository,
                           ClienteRepository clienteRepository,
+<<<<<<< HEAD:src/main/java/com/restaurante/sistema_restaurante/service/ReservaService.java
                           MesaRepository mesaRepository,
                           EmailService emailService) {
         this.reservaRepository = reservarepository;
@@ -35,6 +44,12 @@ public class ReservaService {
         this.mesaRepository = mesaRepository;
         this.emailService = emailService;
     }
+=======
+                          MesaRepository mesaRepository) {
+        this.reservaRepository = reservarepository;
+        this.clienteRepository = clienteRepository;
+        this.mesaRepository = mesaRepository;}
+>>>>>>> 7d34b07 (Adiciona frontend e reorganiza estrutura do projeto):sistema-restaurante/src/main/java/com/restaurante/sistema_restaurante/service/ReservaService.java
     public ReservaDTO save(ReservaDTO reserva){
         Cliente cliente = clienteRepository.findById(reserva.getCliente().getId())
                 .orElseThrow(() -> new CommonsException(HttpStatus.NOT_FOUND,
